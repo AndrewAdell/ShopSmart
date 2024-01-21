@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:shop_smart/models/product_model.dart';
 
 class CustomCard extends StatelessWidget {
-  const CustomCard();
-
+  CustomCard({this.product});
+  ProductModel? product;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -11,23 +12,23 @@ class CustomCard extends StatelessWidget {
         Container(
           height: 220,
           width: 400,
-          child: const Padding(
-            padding: EdgeInsets.all(25.0),
+          child: Padding(
+            padding: const EdgeInsets.all(25.0),
             child: Card(
               elevation: 10,
               child: Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Text('handbag Lv'),
+                    Text('${product?.title}'.substring(0, 6)),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        Text(r'$225'),
-                        Icon(
+                        Text(r'$' '${product?.price}'),
+                        const Icon(
                           Icons.favorite,
                           color: Colors.red,
                         )
@@ -43,8 +44,9 @@ class CustomCard extends StatelessWidget {
           bottom: 100,
           left: 80,
           child: Image.network(
-            "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+            '${product?.image}',
             height: 80,
+            width: 100,
           ),
         ),
       ],

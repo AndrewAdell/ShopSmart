@@ -1,7 +1,7 @@
 class ProductModel {
   int? id;
   String? title;
-  double? price;
+  dynamic price;
   String? description;
   String? category;
   String? image;
@@ -31,7 +31,7 @@ class ProductModel {
 }
 
 class RatingModel {
-  double? rate;
+  dynamic rate;
   int? count;
   RatingModel({
     required this.rate,
